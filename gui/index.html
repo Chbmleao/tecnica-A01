@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Interface gráfica do utilizador - Base de dados com HTML, GO and NodeJS</title>
-<meta name="viewport" content="user-scalable=no, width=device-width"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-<script type="text/javascript" src="js/jquery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TB01</title>
+    <style>
+        td, table {
+            border: 1px solid black;
+        }
+    </style>
 </head>
-<body style="margin:30px">
-    <div class="container">
-        <div class="row">
-            <form>
-                <fieldset> 
-                    <legend>Texto</legend>
-                    <input type="text" name="" class="form-control" id="texto"> 
-                    <br><br>
-                    <button type="button" id="inserir" class="btn btn-success">Inserir item</button>
+<body>
 
-                </fieldset> 
-            </form>
+    <script src="post.js"></script>
+    <form onsubmit="insereTB01()">
+        <label for="col_texto">Texto:</label>
+        <input name="col_texto" id="col_texto" type="text">
+        <br><br>
+        <button type="submit">Inserir</button>
+        <br><br>
+    </form>
 
-            <hr>
-            <h4>Registro</h4>
-            <table class="table table-bordered table-hover">
-
-            </table>
-        </div>
-        
-    </div>    
-    <script type="text/javascript"></script>
-
+    <h1>Tabela TB01</h1>
+    <table id="tabela"></table>
+    
+    <script src="get.js"></script>
 </body>
 </html>

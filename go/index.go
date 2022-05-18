@@ -29,6 +29,10 @@ func setupDB() *sql.DB {
 	return db
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 type TB01 struct {
 	TB01Texto string `json:"col_texto"`
 	TB01Data  string `json:"col_dt"`
@@ -59,6 +63,7 @@ func checkErr(err error) {
 // response and request handlers
 func CreateTB01(w http.ResponseWriter, r *http.Request) {
 
+	enableCors(&w)
 	tb01Texto := r.FormValue("col_texto")
 
 	var response = JsonResponse{}
@@ -86,12 +91,11 @@ func CreateTB01(w http.ResponseWriter, r *http.Request) {
 
 // Função main
 func main() {
-
 	// Inicia a rota mux
 	router := mux.NewRouter()
 
 	// Create a movie
-	router.HandleFunc("/tb01/", CreateTB01).Methods("POST")
+	router.HandleFunc("/go/tb01", CreateTB01).Methods("POST")
 
 	// servidor do app
 	fmt.Println("Server at 8080")
